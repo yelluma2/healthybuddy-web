@@ -2,14 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../api";
 
-const inputStyle = {
-  display: "block",
-  width: "100%",
-  marginBottom: 10,
-  padding: 8,
-  boxSizing: "border-box",
-};
-
 function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
   const [message, setMessage] = useState("");
@@ -33,18 +25,21 @@ function Login() {
   };
 
   return (
-    <div style={{ maxWidth: 360, margin: "60px auto", fontFamily: "sans-serif" }}>
-      <h1>Health Buddy</h1>
-      <h2>Log in</h2>
-      <form onSubmit={handleSubmit}>
-        <input name="email" type="email" placeholder="Email" value={form.email} onChange={handleChange} style={inputStyle} />
-        <input name="password" type="password" placeholder="Password" value={form.password} onChange={handleChange} style={inputStyle} />
-        <button type="submit" style={{ padding: "8px 16px" }}>Log in</button>
-      </form>
-      {message && <p style={{ color: "red" }}>{message}</p>}
-      <p>
-        No account yet? <Link to="/signup">Sign up</Link>
-      </p>
+    <div className="auth-wrapper">
+      <div className="auth-card">
+        <div className="logo">🩺</div>
+        <h1 className="brand">Health Buddy</h1>
+        <p className="subtitle">Welcome back! Log in to continue</p>
+        {message && <div className="error">{message}</div>}
+        <form onSubmit={handleSubmit}>
+          <input name="email" type="email" placeholder="Email" value={form.email} onChange={handleChange} />
+          <input name="password" type="password" placeholder="Password" value={form.password} onChange={handleChange} />
+          <button className="btn" type="submit">Log in</button>
+        </form>
+        <p className="switch-text">
+          No account yet? <Link to="/signup">Sign up</Link>
+        </p>
+      </div>
     </div>
   );
 }
