@@ -4,6 +4,8 @@ import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import Landing from "../pages/Landing";
 import Portal from "../pages/Portal";
+import AboutUs from "../pages/aboutUs";
+import Settings from "../pages/settings";
 
 // Every page in the app is listed here.
 // protected: true  -> only logged-in users can open it
@@ -14,6 +16,8 @@ const routes = [
   { path: "/login", element: <Login /> },
   { path: "/signup", element: <Signup /> },
   { path: "/dashboard", element: <Dashboard />, protected: true },
+  { path: "/about", element: <AboutUs /> },
+  { path: "/settings", element: <Settings />, protected: true }
 ];
 
 function AppRoutes() {
